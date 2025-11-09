@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: ai-luffy-search
+    env: java
+    plan: free
+    buildCommand: mvn clean package -DskipTests
+    startCommand: java -jar target/*.jar
