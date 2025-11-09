@@ -136,7 +136,7 @@ public class AiSummaryReporter {
                     }
                     resultsDiv.innerHTML = "<p>⏳ Searching...</p>";
                     try {
-                        const res = await fetch(`http://localhost:8081/api/search?q=${encodeURIComponent(query)}`);
+                    const res = await fetch(`https://ai-reports-backend.onrender.com/api/search?q=${encodeURIComponent(query)}`);
                         if (!res.ok) throw new Error("Server not reachable");
                         const data = await res.json();
 
