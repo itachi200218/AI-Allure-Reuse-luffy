@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="AI Automation Framework Suite" parallel="false">
+
+    <!-- Global Parameters (optional) -->
+    <parameter name="env" value="local" />
+    <parameter name="reporting" value="allure" />
+
+    <listeners>
+        <!-- Allure integration listener -->
+        <listener class-name="io.qameta.allure.testng.AllureTestNg" />
+    </listeners>
+
+    <test name="Full Stack Food Finder API Tests">
+        <classes>
+            <class name="org.FoodFinderTest" />
+        </classes>
+    </test>
+
+    <test name="AI Job Tracker API Tests">
+        <classes>
+            <class name="org.TrackerTest" />
+        </classes>
+    </test>
+
+    <test name="AI Reporter / Utility Tests">
+        <classes>
+            <!-- Add your 3rd class here (for example) -->
+            <class name="org.UserAppTest" />
+        </classes>
+    </test>
+
+    <test name="Social Media API Tests">
+        <classes>
+            <class name="org.SocialMediaTest" />
+        </classes>
+    </test>
+
+</suite>
