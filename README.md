@@ -20,7 +20,32 @@ The framework automates API testing while **learning** from execution history to
 
 ---
 
-## 🏗️ 2️⃣ Architecture Overview
+## 🧭 2️⃣ Architecture Flowchart
+
+```mermaid
+flowchart TD
+    A[TestNG Suite Run] --> B[REST Assured API Execution]
+    B --> C[MongoDB Data Logger]
+    C --> D[AI Report Generator]
+    D --> E[Allure Report Creation]
+    E --> F[AI Summary + Comparison Engine]
+    F --> G[MongoDB Storage: ai_reports, ai_executions]
+    G --> H[AI Search Service (Spring Boot)]
+    H --> I[Render Deployment - Cloud Access]
+    
+    subgraph AI Engine
+    C --> J[AI Pattern Analyzer]
+    J --> K[Auto Token & Payload Generator]
+    end
+    
+    style AI Engine fill:#0f172a,stroke:#38bdf8,stroke-width:2px,color:white
+    style A fill:#e2e8f0
+    style I fill:#38bdf8,color:white
+```
+
+---
+
+## 🏗️ 3️⃣ Architecture Overview
 
 | **Layer** | **Description** | **Tech Stack** |
 |------------|------------------|----------------|
@@ -33,7 +58,7 @@ The framework automates API testing while **learning** from execution history to
 
 ---
 
-## ⚙️ 3️⃣ Key Functional Modules
+## ⚙️ 4️⃣ Key Functional Modules
 
 | **Module** | **Description** |
 |-------------|----------------|
@@ -47,7 +72,7 @@ The framework automates API testing while **learning** from execution history to
 
 ---
 
-## 🤖 4️⃣ Advanced AI Features
+## 🤖 5️⃣ Advanced AI Features
 
 | **Feature** | **What It Does** |
 |--------------|------------------|
@@ -60,7 +85,7 @@ The framework automates API testing while **learning** from execution history to
 
 ---
 
-## 🌐 5️⃣ Technologies Used
+## 🌐 6️⃣ Technologies Used
 
 | **Category** | **Tools / Frameworks** |
 |---------------|------------------------|
@@ -75,7 +100,7 @@ The framework automates API testing while **learning** from execution history to
 
 ---
 
-## 💪 6️⃣ Production-Level Strength
+## 💪 7️⃣ Production-Level Strength
 
 ✅ **Enterprise Ready** — modular, scalable, and Allure-compatible  
 ✅ **Data-Persistent** — MongoDB ensures long-term tracking  
@@ -86,7 +111,7 @@ The framework automates API testing while **learning** from execution history to
 
 ---
 
-## 🧰 7️⃣ Example Workflow
+## 🧰 8️⃣ Example Workflow
 
 1️⃣ Run TestNG Suite → Executes all API test cases  
 2️⃣ REST Assured validates endpoints and responses  
@@ -98,7 +123,7 @@ The framework automates API testing while **learning** from execution history to
 
 ---
 
-## 📊 8️⃣ Example Output Summary
+## 📊 9️⃣ Example Output Summary
 
 ```
 🤖 AI Test Intelligence Report — Unified View
@@ -111,7 +136,7 @@ The framework automates API testing while **learning** from execution history to
 
 ---
 
-## 👨‍💻 9️⃣ Developer Profile Summary
+## 👨‍💻 🔟 Developer Profile Summary
 
 Designed and developed an **AI-powered API Automation Framework** using Java, Spring Boot, TestNG, REST Assured, Allure, and MongoDB.  
 Integrated intelligent analysis modules that compare runs, detect recurring API issues, and generate natural language summaries.  
@@ -119,7 +144,7 @@ Deployed an AI-powered **search interface on Render** for real-time access to hi
 
 ---
 
-## 🏁 10️⃣ Final Verdict
+## 🏁 ⭐ Final Verdict
 
 🔥 **Production-Grade, AI-Enhanced, and Enterprise-Ready**  
 This framework merges **full-stack development**, **AI automation**, **database analytics**, and **cloud deployment** into a single unified test intelligence ecosystem.  
