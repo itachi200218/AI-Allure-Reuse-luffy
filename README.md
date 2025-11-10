@@ -28,7 +28,7 @@ flowchart TD
     B --> C[MongoDB Data Logger]
     C --> D[AI Report Generator]
     D --> E[Allure Report Creation]
-    E --> F[AI Summary + Comparison Engine]
+    E --> F[AI Summary & Comparison Engine]
     F --> G[MongoDB Storage: ai_reports, ai_executions]
     G --> H[AI Search Service (Spring Boot)]
     H --> I[Render Deployment - Cloud Access]
@@ -37,12 +37,7 @@ flowchart TD
         C --> J[AI Pattern Analyzer]
         J --> K[Auto Token & Payload Generator]
     end
-
-    style AI_Engine fill:#0f172a,stroke:#38bdf8,stroke-width:2px,color:white
-    style A fill:#e2e8f0,stroke:#94a3b8
-    style I fill:#38bdf8,color:white,stroke:#1e293b
 ```
-
 
 ## 🏗️ 3️⃣ Architecture Overview
 
