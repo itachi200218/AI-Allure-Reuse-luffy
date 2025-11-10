@@ -1,4 +1,4 @@
-# 🚀 AI-Allure-Reuse-Luffy Framework
+# 🚀 ALlureIQ
 
 ### 🧠 *AI-Powered API Automation Platform — Smart, Scalable, Self-Learning*
 
