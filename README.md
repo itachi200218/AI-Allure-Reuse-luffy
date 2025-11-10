@@ -1,4 +1,4 @@
-# 🚀 ALlureIQ
+# 🚀 AllureIQ
 
 ### 🧠 *AI-Powered API Automation Platform — Smart, Scalable, Self-Learning*
 
