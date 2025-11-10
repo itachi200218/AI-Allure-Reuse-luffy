@@ -38,9 +38,27 @@
           border-radius: 6px;
           border: 1px solid #ddd;
           overflow-x: auto;
+          font-size: 13px;
         }
         #searchResults {
           margin-top: 20px;
+        }
+        .collection-card {
+          border-left: 5px solid #0078D7;
+          margin-bottom: 20px;
+          padding: 15px;
+          background: #fff;
+          border-radius: 8px;
+          box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+        }
+        .ai-summary-box {
+          background: #eef4ff;
+          border-left: 5px solid #4285F4;
+          padding: 15px;
+          border-radius: 8px;
+          margin-bottom: 20px;
+          white-space: pre-wrap;
+          font-size: 14px;
         }
     </style>
 </head>
@@ -75,11 +93,7 @@
       try {
         const res = await fetch(`${backendURL}/api/summary`);
         if (!res.ok) throw new Error("Server not reachable");
-
-        // Get text response (backend returns HTML or text)
         const data = await res.text();
-
-        // Display summary
         summaryDiv.innerHTML = data;
       } catch (err) {
         summaryDiv.innerHTML = `<p style='color:red;'>❌ Failed to load summary: ${err.message}</p>`;
@@ -104,20 +118,32 @@
 
         const data = await res.json();
 
-        if (!data.results || Object.keys(data.results).length === 0) {
-          resultsDiv.innerHTML = `<p>No results found for <b>${query}</b>.</p>`;
-          return;
+        let html = "";
+
+        // ✅ Show AI Summary first
+        if (data.ai_summary) {
+          html += `
+            <div class="ai-summary-box">
+              <h3>🧠 AI Summary for "${query}"</h3>
+              <p>${data.ai_summary.replace(/\n/g, '<br>')}</p>
+            </div>
+          `;
         }
 
-        let html = "";
-        for (const [collection, docs] of Object.entries(data.results)) {
-          html += `<h3 style='color:#0078D7;'>📂 ${collection}</h3>`;
-          if (docs.length === 0) {
-            html += "<p><i>No entries found.</i></p>";
-          } else {
-            docs.forEach(doc => {
-              html += `<pre>${JSON.stringify(doc, null, 2)}</pre>`;
-            });
+        // 🗂 Display collections neatly
+        if (!data.results || Object.keys(data.results).length === 0) {
+          html += `<p>No results found for <b>${query}</b>.</p>`;
+        } else {
+          for (const [collection, docs] of Object.entries(data.results)) {
+            html += `<div class="collection-card"><h3>📂 ${collection}</h3>`;
+            if (docs.length === 0) {
+              html += "<p><i>No entries found.</i></p>";
+            } else {
+              docs.slice(0, 10).forEach(doc => {
+                html += `<pre>${JSON.stringify(doc, null, 2)}</pre>`;
+              });
+            }
+            html += "</div>";
           }
         }
 
